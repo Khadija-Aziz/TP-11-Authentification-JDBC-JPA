@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Espace Sécurisé</title>
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5dc;
+        }
+
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 8px 20px rgba(93, 64, 55, 0.15);
+            border: 1px solid #d7ccc8;
+        }
+
+        h2 {
+            color: #5d4037;
+            text-align: center;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        label {
+            color: #795548;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1.5px solid #d7ccc8;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #8d6e63;
+            box-shadow: 0 0 5px rgba(141, 110, 99, 0.3);
+        }
+
+
+        button {
+            width: 100%;
+            cursor: pointer;
+            background-color: #5d4037;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #3e2723; /* Marron plus foncé au survol */
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Message d'erreur */
+        .error {
+            color: #ffffff;
+            background-color: #a63a3a;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Connexion</h2>
+
+    <form th:action="@{/login}" method="post">
+        <div>
+            <label>Nom d'utilisateur :</label><br>
+            <input type="text" name="username" placeholder="Identifiant" required />
+        </div>
+        <br>
+        <div>
+            <label>Mot de passe :</label><br>
+            <input type="password" name="password" placeholder="••••••••" required />
+        </div>
+        <br>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <div th:if="${param.error}" class="error">
+        Nom d'utilisateur ou mot de passe incorrect.
+    </div>
+</div>
+</body>
+</html>

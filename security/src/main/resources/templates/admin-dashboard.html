@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de Bord - Admin</title>
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        .admin-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.2);
+            text-align: center;
+            width: 400px;
+            border-top: 8px solid #5d4037;
+        }
+
+        h2 {
+            color: #5d4037;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #795548;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        /* Badge Admin */
+        .badge {
+            display: inline-block;
+            background-color: #d7ccc8;
+            color: #5d4037;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+
+        button {
+            background-color: #8d6e63; /* Marron plus clair */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            background-color: #5d4037; /* Marron foncé au survol */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="admin-card">
+    <div class="badge">Accès Administrateur</div>
+    <h2>Bienvenue Admin !</h2>
+    <p>Vous avez le plein contrôle sur le système.</p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Se déconnecter</button>
+    </form>
+</div>
+
+</body>
+</html>
